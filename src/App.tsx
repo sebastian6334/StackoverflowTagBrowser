@@ -67,7 +67,7 @@ function App() {
       return <ErrorComponent error={error} />;
     }
     if (!isLoading && !error) {
-      return <DisplayTagsComponent tags={tags} totalPages={totalPages} />;
+      return <DisplayTagsComponent tags={tags} />;
     }
   };
 
@@ -80,6 +80,7 @@ function App() {
       <Grid ml={2} item>
         <NumberField
           title={fieldConfig.elementsPerPage.title}
+          minValue={fieldConfig.elementsPerPage.minValue}
           maxValue={allTags.length}
           defaultValue={pageSize}
         />

@@ -2,7 +2,7 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import styles from "./SelectField.module.css";
 
 interface PropsInterface {
-  title: string;
+  title?: string;
   handleChange: (event: any) => void;
   menuItems: Array<string> | Array<number>;
   defaultValue: string | number;
