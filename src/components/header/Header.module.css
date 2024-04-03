@@ -1,0 +1,14 @@
+.header-container {
+  padding: 10px;
+  background-color: #000000f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Roboto Slab;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.header-container > *:first-child {
+  margin-right: 8px;
+}

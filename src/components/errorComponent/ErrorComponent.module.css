@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.icon {
+  width: 100px;
+  height: auto;
+}
+
+.text {
+  margin-top: 1rem;
+  color: #d32f2f;
+  align-items: center;
+}
