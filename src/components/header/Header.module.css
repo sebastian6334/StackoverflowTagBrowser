@@ -4,9 +4,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Roboto Slab;
+  font-family: "Roboto Slab", sans-serif;
   font-weight: 700;
   font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 15, 15, 0.6) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.5);
 }
 
 .header-container > *:first-child {

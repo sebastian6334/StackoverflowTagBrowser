@@ -18,7 +18,13 @@ const DisplayTagsComponent = ({ tags }: ItemsInterface) => {
   return (
     <>
       <Grid item m={2} xs={12}>
-        <TableContainer component={Paper}>
+        <TableContainer
+          component={Paper}
+          sx={{
+            boxShadow: "0 8px 12px -6px rgba(0, 0, 0, 0.5)",
+            borderRadius: "8px",
+          }}
+        >
           <Table>
             <TableHead>
               <TableRow>

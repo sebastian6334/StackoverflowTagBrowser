@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Grid, Pagination } from "@mui/material";
+import { Grid } from "@mui/material";
 import SelectField from "./components/fields/selectField/SelectField";
 import { useCounterStore } from "./store";
 import sortItemsByProperty from "./helpers/sort";
@@ -10,6 +10,8 @@ import Loader from "./components/loader/Loader";
 import ErrorComponent from "./components/errorComponent/ErrorComponent";
 import DisplayTagsComponent from "./components/displayTagsComponent/DisplayTagsComponent";
 import NumberField from "./components/fields/numberField/NumberField";
+import ToggleButton from "./components/fields/toggleButton/ToggleButton";
+import PaginationField from "./components/fields/paginationField/PaginationField";
 
 function App() {
   const [tags, setTags] = useState([]);
@@ -94,27 +96,10 @@ function App() {
         />
       </Grid>
       <Grid item>
-        <Button
-          variant="outlined"
-          size="medium"
-          onClick={hangleSort}
-          sx={{
-            height: "100%",
-            borderRadius: "8px",
-            background: "#f5f5f5",
-            boxShadow:
-              "inset 0 0 10px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(0, 0, 0, 0.2)",
-            transition: "box-shadow 0.3s ease",
-            "&:hover": {
-              boxShadow:
-                "inset 0 0 8px rgba(255, 152, 0, 0.4), inset 0 0 12px rgba(255, 152, 0, 0.6)",
-              background: "#ffffff",
-              color: "#000000",
-            },
-          }}
-        >
-          {sortOrder === "asc" ? "Ascending" : "Descending"}
-        </Button>
+        <ToggleButton
+          titleArr={["Ascending", "Descending"]}
+          onChange={hangleSort}
+        />
       </Grid>
 
       <Grid item xs={12}>
@@ -122,35 +107,10 @@ function App() {
       </Grid>
 
       <Grid item xs={12}>
-        <Pagination
-          count={totalPages}
+        <PaginationField
+          totalPages={totalPages}
           page={page}
-          onChange={handlePageChange}
-          variant="outlined"
-          shape="rounded"
-          sx={{
-            margin: "20px auto",
-            display: "flex",
-            justifyContent: "center",
-            "& .MuiPaginationItem-root": {
-              borderRadius: "8px",
-              boxShadow:
-                "inset 0 0 6px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.1)",
-              margin: "0 5px",
-              background: "#f5f5f5",
-              "&:hover": {
-                boxShadow:
-                  "inset 0 0 8px rgba(255, 152, 0, 0.4), inset 0 0 12px rgba(255, 152, 0, 0.6)",
-                background: "#ffffff",
-                color: "#000000",
-              },
-              "&.Mui-selected": {
-                background: "#f7a664",
-                boxShadow:
-                  "inset 0 0 8px rgba(0, 0, 0, 0.3), inset 0 0 12px rgba(0, 0, 0, 0.4)",
-              },
-            },
-          }}
+          handlePageChange={handlePageChange}
         />
       </Grid>
     </Grid>

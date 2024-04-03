@@ -16,7 +16,7 @@ const SelectField = ({
 }: PropsInterface) => {
   return (
     <div className={styles["container"]}>
-      <FormControl fullWidth>
+      <FormControl fullWidth variant="filled">
         <InputLabel>{title}</InputLabel>
         <Select value={defaultValue} label={title} onChange={handleChange}>
           {menuItems.map((item: string | number, index: number) => (

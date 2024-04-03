@@ -30,22 +30,21 @@ function NumberField({
   };
 
   return (
-    <div className={styles["container"]}>
-      <TextField
-        label={title}
-        type="number"
-        value={value}
-        onChange={handleInputChange}
-        inputProps={{
-          min: minValue,
-          max: maxValue,
-        }}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        className={styles["number-field-input"]}
-      />
-    </div>
+    <TextField
+      label={title}
+      type="number"
+      value={value}
+      variant="filled"
+      onChange={handleInputChange}
+      inputProps={{
+        min: minValue,
+        max: maxValue,
+      }}
+      InputLabelProps={{
+        shrink: true,
+      }}
+      className={styles["container"]}
+    />
   );
 }
 
