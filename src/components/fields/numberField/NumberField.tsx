@@ -4,17 +4,23 @@ import { useCounterStore } from "../../../store";
 import styles from "./NumberField.module.css";
 
 interface PropsInterface {
-  title: string;
-  maxValue: number;
+  title?: string;
+  maxValue?: number;
+  minValue?: number;
   defaultValue?: number;
 }
 
-function NumberField({ title, maxValue, defaultValue = 10 }: PropsInterface) {
+function NumberField({
+  title,
+  maxValue,
+  minValue,
+  defaultValue,
+}: PropsInterface) {
   const [value, setValue] = useState(defaultValue);
-  console.log(styles);
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     let inputValue = parseInt(event.target.value);
-    if (inputValue > maxValue) {
+    if (maxValue && inputValue > maxValue) {
       inputValue = maxValue;
     }
     setValue(inputValue);
@@ -24,22 +30,21 @@ function NumberField({ title, maxValue, defaultValue = 10 }: PropsInterface) {
   };
 
   return (
-    <div className={styles["container"]}>
-      <TextField
-        label={title}
-        type="number"
-        value={value}
-        onChange={handleInputChange}
-        inputProps={{
-          min: 1,
-          max: maxValue,
-        }}
-        InputLabelProps={{
-          shrink: true,
-        }}
-        className={styles["number-field-input"]}
-      />
-    </div>
+    <TextField
+      label={title}
+      type="number"
+      value={value}
+      variant="filled"
+      onChange={handleInputChange}
+      inputProps={{
+        min: minValue,
+        max: maxValue,
+      }}
+      InputLabelProps={{
+        shrink: true,
+      }}
+      className={styles["container"]}
+    />
   );
 }
 

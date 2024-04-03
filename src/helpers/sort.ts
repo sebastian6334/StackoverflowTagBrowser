@@ -13,7 +13,6 @@ const sortItemsByProperty = ({
   property,
   sortOrder,
 }: PropsInterface) => {
-  console.log(items, property, sortOrder);
   const sortedItems = items.slice(0);
   sortedItems.sort((a, b) => {
     if (property === "count") {
