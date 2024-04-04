@@ -27,7 +27,7 @@ npm ci
 ```bash
 npm start
 ```
-- or
+or
 ```bash
 npm run dev
 ```
