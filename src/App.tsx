@@ -85,6 +85,7 @@ function App() {
           minValue={fieldConfig.elementsPerPage.minValue}
           maxValue={allTags.length}
           defaultValue={pageSize}
+          isDisabled={!!error || isLoading}
         />
       </Grid>
       <Grid item>
@@ -93,12 +94,14 @@ function App() {
           handleChange={handleSortFieldChange}
           menuItems={fieldConfig.sortBy.menuItems}
           defaultValue={sortField}
+          isDisabled={!!error || isLoading}
         />
       </Grid>
       <Grid item>
         <ToggleButton
           titleArr={["Ascending", "Descending"]}
           onChange={hangleSort}
+          isDisabled={!!error || isLoading}
         />
       </Grid>
 
@@ -111,6 +114,7 @@ function App() {
           totalPages={totalPages}
           page={page}
           handlePageChange={handlePageChange}
+          isDisabled={!!error || isLoading}
         />
       </Grid>
     </Grid>

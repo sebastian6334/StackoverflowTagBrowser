@@ -8,6 +8,7 @@ interface PropsInterface {
   maxValue?: number;
   minValue?: number;
   defaultValue?: number;
+  isDisabled?: boolean;
 }
 
 function NumberField({
@@ -15,6 +16,7 @@ function NumberField({
   maxValue,
   minValue,
   defaultValue,
+  isDisabled,
 }: PropsInterface) {
   const [value, setValue] = useState(defaultValue);
 
@@ -36,6 +38,7 @@ function NumberField({
       value={value}
       variant="filled"
       onChange={handleInputChange}
+      disabled={isDisabled}
       inputProps={{
         min: minValue,
         max: maxValue,

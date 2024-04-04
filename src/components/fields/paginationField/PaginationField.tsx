@@ -5,12 +5,14 @@ export interface PropsInterface {
   totalPages: number;
   page: number;
   handlePageChange?: (_: React.ChangeEvent<unknown>, value: number) => void;
+  isDisabled: boolean;
 }
 
 const PaginationField = ({
   totalPages = 1,
   page = 1,
   handlePageChange,
+  isDisabled,
 }: PropsInterface) => {
   const [pages, setPages] = useState(totalPages);
   const [pageNumber, setPageNumber] = useState(page);
@@ -32,6 +34,7 @@ const PaginationField = ({
       onChange={handleChange}
       variant="outlined"
       shape="rounded"
+      disabled={isDisabled}
       sx={{
         margin: "20px auto",
         display: "flex",

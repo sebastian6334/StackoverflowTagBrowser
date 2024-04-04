@@ -5,11 +5,13 @@ import styles from "./ToggleButton.module.css";
 export interface PropsInterface {
   titleArr: Array<string>;
   onChange?: () => void;
+  isDisabled?: boolean;
 }
 
 const ToggleButton = ({
   titleArr = ["Yes", "No"],
   onChange,
+  isDisabled,
 }: PropsInterface) => {
   const [isFirstTitle, setIsFirstTitle] = useState(true);
 
@@ -26,6 +28,7 @@ const ToggleButton = ({
       size="medium"
       onClick={handleChange}
       className={styles["container"]}
+      disabled={isDisabled}
     >
       {isFirstTitle ? titleArr[0] : titleArr[1]}
     </Button>

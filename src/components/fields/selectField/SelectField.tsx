@@ -6,6 +6,7 @@ interface PropsInterface {
   handleChange: (event: any) => void;
   menuItems: Array<string> | Array<number>;
   defaultValue: string | number;
+  isDisabled?: boolean;
 }
 
 const SelectField = ({
@@ -13,10 +14,11 @@ const SelectField = ({
   handleChange,
   menuItems,
   defaultValue,
+  isDisabled,
 }: PropsInterface) => {
   return (
     <div className={styles["container"]}>
-      <FormControl fullWidth variant="filled">
+      <FormControl fullWidth variant="filled" disabled={isDisabled}>
         <InputLabel>{title}</InputLabel>
         <Select value={defaultValue} label={title} onChange={handleChange}>
           {menuItems.map((item: string | number, index: number) => (
