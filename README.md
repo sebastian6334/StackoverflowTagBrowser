@@ -13,7 +13,7 @@ git clone https://github.com/sebastian6334/StackoverflowTagBrowser.git
 
 - Navigate into the project directory:
 ```bash
-cd stackoverflow-tag-browser
+cd StackoverflowTagBrowser
 ```
 
 - Navigate into the project directory:
