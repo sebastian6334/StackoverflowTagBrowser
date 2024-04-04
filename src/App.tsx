@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import SelectField from "./components/fields/selectField/SelectField";
-import { useCounterStore } from "./store";
+import { useStore } from "./store";
 import sortItemsByProperty from "./helpers/sort";
 import Header from "./components/header/Header";
 import { fieldConfig } from "./components/fields/config";
@@ -19,7 +19,7 @@ function App() {
   const [sortOrder, setSortOrder] = useState("asc");
   const [totalPages, setTotalPages] = useState(0);
 
-  const { allTags, isLoading, error, pageInformation } = useCounterStore(
+  const { allTags, isLoading, error, pageInformation } = useStore(
     (state) => state
   );
 
@@ -39,7 +39,7 @@ function App() {
   }, [page, pageSize, allTags]);
 
   const handlePageChange = (_: React.ChangeEvent<unknown>, value: number) => {
-    useCounterStore.setState({
+    useStore.setState({
       pageInformation: { page: value, pageSize: pageSize },
     });
   };
@@ -58,7 +58,7 @@ function App() {
     });
 
     setSortOrder(sortType);
-    useCounterStore.setState({ allTags: sortedItems });
+    useStore.setState({ allTags: sortedItems });
   };
 
   const displayComponent = () => {

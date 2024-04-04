@@ -7,7 +7,7 @@ type CounterStore = {
   pageInformation: { page: number; pageSize: number };
 };
 
-export const useCounterStore = create<CounterStore>(() => ({
+export const useStore = create<CounterStore>(() => ({
   allTags: [],
   isLoading: false,
   pageInformation: { page: 1, pageSize: 10 },

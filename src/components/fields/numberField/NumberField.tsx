@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import TextField from "@mui/material/TextField";
-import { useCounterStore } from "../../../store";
+import { useStore } from "../../../store";
 import styles from "./NumberField.module.css";
 
 interface PropsInterface {
@@ -24,7 +24,7 @@ function NumberField({
       inputValue = maxValue;
     }
     setValue(inputValue);
-    useCounterStore.setState({
+    useStore.setState({
       pageInformation: { page: 1, pageSize: inputValue },
     });
   };
